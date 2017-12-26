@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: ldap-conf
-  namespace: krb5ldap
+  namespace: nakano-a
 data:
   LDAP_LOG_LEVEL: "256"
   LDAP_ORGANISATION: "Example Inc."
@@ -28,3 +28,4 @@ data:
   KEEP_EXISTING_CONFIG: "false"
   LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
   LDAP_SSL_HELPER_PREFIX: "ldap"
+  KRB5_KTNAME=/etc/ldap/keytab
