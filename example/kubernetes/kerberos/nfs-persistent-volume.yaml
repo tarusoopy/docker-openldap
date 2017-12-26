@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nakano-ldap-data
+  namespace: krb5ldap
+  annotations:
+    volume.beta.kubernetes.io/storage-class: nakano-nfs-ldap-data
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: 192.168.25.24
+    path: /home/nfs/nakano/ldap/db
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nakano-ldap-config
+  namespace: krb5ldap
+  annotations:
+    volume.beta.kubernetes.io/storage-class: nakano-nfs-ldap-config
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: 192.168.25.24
+    path: /home/nfs/nakano/ldap/config
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nakano-ldap-certs
+  namespace: krb5ldap
+  annotations:
+    volume.beta.kubernetes.io/storage-class: nakano-nfs-ldap-certs
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: 192.168.25.24
+    path: /home/nfs/nakano/ldap/certs
